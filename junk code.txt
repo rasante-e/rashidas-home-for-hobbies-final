@@ -1,0 +1,137 @@
+/*
+
+newItemForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(newItemForm);
+
+    const name = formData.get("name");
+    const type = formData.get("type");
+    const url = formData.get("url");
+
+    //FETCH ATTEMPT STARTS HERE
+
+    fetch("list.json", {
+     
+     // Adding method type
+     method: "POST",
+      
+     // Adding body or contents to send
+     body: JSON.stringify({
+         name: name,
+         type: type,
+         url: url
+     }),
+      
+     // Adding headers to the request
+     headers: {
+         "Content-type": "application/json; charset=UTF-8"
+         //
+     }
+ })
+  
+ // Converting to JSON
+ .then(response => response.json())
+  
+ // Displaying results to console
+ .then(json => console.log(json));
+
+ //FETCH ATTEMPT ENDS HERE
+
+
+    console.log(name);
+    console.log(type);
+    console.log(name);
+});
+
+*/
+
+/*
+function saveFormData() {
+    //var inputs = document.getElementById("list-form").elements;
+   var title = document.getElementById("name").value;
+   var type = document.getElementById("type").value;
+   var url = document.getElementById("url").value;
+    //console.log(title);
+    console.log(url);
+}
+*/
+
+/*
+function saveFormData() {
+    //var inputs = document.getElementById("list-form").elements;
+   var title = document.getElementById("name").value;
+   var type = document.getElementById("type").value;
+   var url = document.getElementById("url").value;
+    //console.log(title);
+    console.log(url);
+}
+*/
+
+//var data = new FormData(document.getElementById("list-form"));
+//console.log(data[0]);
+
+//const formInfo = new FormData(form);
+
+/*
+var submit = document.getElementById("#submit");
+var formItself = document.querySelector("#list-form");
+
+
+if (submit) {
+
+submit.addEventListener("click", (e) => {
+
+    e.preventDefault();
+    var title = document.getElementById("name").value;
+   var type = document.getElementById("type").value;
+   var url = document.getElementById("url").value;
+
+   // var formContent = new FormData(formItself);
+  //  var formValues = [...formContent.entries()];
+   // console.log(formValues);
+}
+
+)
+}
+*/
+//var formData = document.getElementById("list-form").elements;
+//console.log(formData["name"]);
+
+/*
+function getFormData (event) {
+    const itemName = document.getElementById("name").value;
+    console.log(itemName);
+    
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+
+    const formJSON = Object.formEntries(data.entries());
+
+    const form = document.querySelector("#list-form");
+    form.addEventListener("submit", handleFormSubmit);
+    console.log(form);
+    
+}
+
+*/
+
+
+//For/Of loop iterates through JSON of to-watch list and creates HTML element for each.
+
+var fs = require('fs');
+
+var data = {}
+data.table = []
+for (i=0; i <26 ; i++){
+   var obj = {
+       id: i,
+       square: i * i
+   }
+   data.table.push(obj)
+}
+fs.writeFile ("input.json", JSON.stringify(data), function(err) {
+    if (err) throw err;
+    console.log('complete');
+    }
+);

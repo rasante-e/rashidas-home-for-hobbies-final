@@ -1,0 +1,211 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main-styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+<header>
+    <div id="title">
+        <h1>Welcome to Rashida's True Crime Hub!</h1>
+    </div>
+    <nav>
+        <ul>
+            <li class="menu-item">Anchor Link 1</li>
+            <li class="menu-item">Anchor Link 2</li>
+            <li class="menu-item">Anchor Link 3</li>
+        </ul>
+    </nav>
+</header>
+<main>
+<div id="form">
+    <form id="list-form">
+    <label for="name">Name: </label></br>
+    <input type="text" id="name" name="name" required></br>
+
+    <label for="type">Type:</label></br>
+    <input type="text" id="type" name="type" required></br>
+
+    <label for="url">URL:</label></br>
+    <input type="url" id="url" name="url" required></br>
+
+    <input type="submit" id="submit" value="Add to List">
+<!--onclick="saveFormData();"return false;-->
+
+</form>
+</div>
+
+    <div id="watch-list">
+        <h3>View Wishlist</h3>
+<ul id="actual-list">
+
+</ul>
+    </div>
+</main>
+
+</body>
+<!---->
+<script type="text/javascript" src="list.json"></script>
+<script>
+
+//const items = new Request("list.json");
+let list = document.querySelector("#actual-list");
+
+//Fetch API pulls in data from JSON file that contains to watch list
+//Creates constant for div container that will hold to-watch list
+
+
+//const watchList = document.getElementById("watch-list");
+
+//const actualList = document.getElementById("actual-list");
+
+
+
+fetch("list.json").then(function (response) {
+    return response.json();
+}).then (function(obj) {
+    //console.log(obj);
+    for (var i = 0; i < obj.length; i++) {
+        //console.log(i);
+        var article = document.createElement("li");
+        actualList.appendChild(article);
+        article.classList.add("retrieved");
+        article.innerHTML = "Name: " + obj[i].name + "<br>" + "Type: " + obj[i].type + "<br>" + obj[i].url;
+        //var listItem = 
+        //article.innerHTML=obj[i].name;
+    }
+}).catch (function(error) {
+    console.error("There's an error");
+    console.error(error);
+});
+
+/*
+const newItemForm = document.getElementById("list-form");
+
+newItemForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(newItemForm);
+
+    const name = formData.get("name");
+    const type = formData.get("type");
+    const url = formData.get("url");
+
+    //FETCH ATTEMPT STARTS HERE
+
+    fetch(items, {
+     
+     // Adding method type
+     method: "POST",
+      
+     // Adding body or contents to send
+     body: JSON.stringify({
+         name: name,
+         type: type,
+         url: url
+     }),
+      
+     // Adding headers to the request
+     headers: {
+         "Content-type": "application/json; charset=UTF-8"
+         //
+     }
+ })
+  
+ // Converting to JSON
+ .then(response => response.json())
+  
+ // Displaying results to console
+ .then(json => console.log(json));
+
+ //FETCH ATTEMPT ENDS HERE
+
+
+  //  console.log(name);
+});
+*/
+
+
+/*
+function saveFormData() {
+    //var inputs = document.getElementById("list-form").elements;
+   var title = document.getElementById("name").value;
+   var type = document.getElementById("type").value;
+   var url = document.getElementById("url").value;
+    //console.log(title);
+    console.log(url);
+}
+*/
+
+/*
+function saveFormData() {
+    //var inputs = document.getElementById("list-form").elements;
+   var title = document.getElementById("name").value;
+   var type = document.getElementById("type").value;
+   var url = document.getElementById("url").value;
+    //console.log(title);
+    console.log(url);
+}
+*/
+
+//var data = new FormData(document.getElementById("list-form"));
+//console.log(data[0]);
+
+//const formInfo = new FormData(form);
+
+/*
+var submit = document.getElementById("#submit");
+var formItself = document.querySelector("#list-form");
+
+
+if (submit) {
+
+submit.addEventListener("click", (e) => {
+
+    e.preventDefault();
+    var title = document.getElementById("name").value;
+   var type = document.getElementById("type").value;
+   var url = document.getElementById("url").value;
+
+   // var formContent = new FormData(formItself);
+  //  var formValues = [...formContent.entries()];
+   // console.log(formValues);
+}
+
+)
+}
+*/
+//var formData = document.getElementById("list-form").elements;
+//console.log(formData["name"]);
+
+/*
+function getFormData (event) {
+    const itemName = document.getElementById("name").value;
+    console.log(itemName);
+    
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+
+    const formJSON = Object.formEntries(data.entries());
+
+    const form = document.querySelector("#list-form");
+    form.addEventListener("submit", handleFormSubmit);
+    console.log(form);
+    
+}
+
+*/
+
+
+//For/Of loop iterates through JSON of to-watch list and creates HTML element for each.
+
+
+
+</script>
+<!--<script src="index.js"></script>-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

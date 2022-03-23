@@ -1,0 +1,10 @@
+Refresh token:
+24814602-c1YAN6M2lgCE32lFHT2RzFYDJzWcRQ
+
+Access token:
+24814602-Ioti3Q64ByWBs0A2V1jZfjVDrDyPJg
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify index.js -o bundle.js"
+  },
