@@ -130,10 +130,21 @@ fetch("list.json").then(function (response) {
 const movieList = document.getElementById("imdb-list");
 
 
-fetch("https://imdb-api.com/en/API/IMDbList/k_qm41xbwq/ls045325485").then(function (response) {
+fetch("https://random-data-api.com/api/app/random_app?size=6").then(function (response) {
     return response.json();
+    //return response;
 }).then (function(obj) {
-    createMovieList(obj);
+    console.log(obj);
+    for (var i = 0; i < obj.length; i++) {
+        //console.log(i);
+        var movie = document.createElement("li");
+        movieList.appendChild(movie);
+        movie.classList.add("retrieved");
+        movie.innerHTML = "Name: " + obj[i].app_name + "<br>" + "Type: " + obj[i].app_author + "<br>" + obj[i].app_semantic_version;
+        
+    }
+    
+    //createMovieList(obj);
     //console.log(obj);
 /*
     for (var i = 0; i < 6; i++) {
@@ -153,20 +164,23 @@ fetch("https://imdb-api.com/en/API/IMDbList/k_qm41xbwq/ls045325485").then(functi
     console.error(error);
 });
 
+
+/*
 function createMovieList(obj) {
     //console.log(obj);
     for (var i = 0; i < 6; i++) {
-        var title=obj.title;
-        console.log(title);
-        /*
+        var movie = data.items[0];
+        var title=movie.title;
+        console.log(movie);
+        
         var movie = document.createElement("li");
         movieList.appendChild(movie);
         article.classList.add("retrieved");
         article.innerHTML = "Name: " + obj[i].name + "<br>" + "Type: " + obj[i].type + "<br>" + obj[i].url;
-        */
+        
     }
 }
-
+*/
 
 //const newItemForm = document.getElementById("list-form");
 
