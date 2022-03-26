@@ -30,8 +30,8 @@
     <label for="url">URL:</label></br>
     <input type="url" id="url" name="url" required></br>
 
-    <input type="submit" id="submit" value="Add to List" onclick="saveFormData();" return false;>
-<!---->
+    <input type="submit" id="submit" value="Add to List">
+<!--onclick="saveFormData();"return false;-->
 
 </form>
 </div>
@@ -50,14 +50,13 @@
 </div>
 
 
-<!--True Crime Time section - message varies depending on day of the week
+<!--True Crime Time section - message varies depending on day of the week-->
 <div id="day-determiner">
     <h3>Is it true crime time?</h3>
     <div id="day">
 
     </div>
 </div>
--->
 
 <!--Wishlist section - this is the area that houses the list items from the JSON file-->
     <div id="watch-list">
@@ -80,31 +79,20 @@
 </body>
 <!---->
 <script type="text/javascript" src="list.json"></script>
-<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="bundle.js"></script>
 
 <!--Script to house reddit API-->
-
-<!--
 <script>
-    var redditPosts = document.getElementById("reddit-posts").innerHTML();
+    
+
+var redditPosts = document.getElementById("reddit-posts");
+
+//.innerHTML();
+
 </script>
--->
+
 <!--Script that pulls in the JSON file that contains the wishlist and turns each one into a list item-->
 <script>
-
-    function saveFormData ();
-    let name;
-    let type;
-    let url;
-
-    name = document.getElementById("name").value;
-
-    console.log(name);
-
-</script>
-
-<script>
-
     
 
 //const items = new Request("list.json");
@@ -199,7 +187,6 @@ document.getElementById("actual-countdown").innerHTML = dayTimer + " day(s),"
 }
 );
 </script>
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
