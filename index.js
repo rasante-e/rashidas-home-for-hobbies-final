@@ -21,16 +21,21 @@ fs.writeFile ("input.json", JSON.stringify(data), function(err) {
 'use strict';
 const snoowrap = require('snoowrap');
 
+/*
 var request = require("request");
 var options = {
     "method": "GET",
-    "url" : "https://imdb-api.com/en/API/SearchKeyword/k_qm41xbwq/truecrime",
+    "url" : "https://imdb-api.com/en/API/IMDbList/k_qm41xbwq/ls045325485",
     "headers": {
     }
 };
 request(options, function (error, response) {
     if(error) throw new Error(error);
     console.log(response.body);
+    //return response.toJSON();
 }
 
 );
+*/
+
+//function getFilms

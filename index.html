@@ -67,9 +67,9 @@
     </div>
 
     <!--Div that will hold reddit API-->
-    <div id="reddit-posts-container">
-        <h3>Stay updated on the latest True Crime topics</h3>
-        <div id="reddit-posts">
+    <div id="imdb-list-container">
+        <h3>Stay updated on the latest True Crime films and shows</h3>
+        <div id="imdb-list">
     
         </div>
     </div>
@@ -79,7 +79,7 @@
 </body>
 <!---->
 <script type="text/javascript" src="list.json"></script>
-<script type="text/javascript" src="bundle.js"></script>
+<!--<script type="text/javascript" src="bundle.js"></script>-->
 
 <!--Script to house reddit API-->
 <script>
@@ -126,8 +126,49 @@ fetch("list.json").then(function (response) {
     console.error(error);
 });
 
+//Variables for movie list
+const movieList = document.getElementById("imdb-list");
 
-const newItemForm = document.getElementById("list-form");
+
+fetch("https://imdb-api.com/en/API/IMDbList/k_qm41xbwq/ls045325485").then(function (response) {
+    return response.json();
+}).then (function(obj) {
+    createMovieList(obj);
+    //console.log(obj);
+/*
+    for (var i = 0; i < 6; i++) {
+        //console.log(i);
+
+        
+        var movie = document.createElement("li");
+        movieList.appendChild(movie);
+        article.classList.add("retrieved");
+        article.innerHTML = "Name: " + obj[i].name + "<br>" + "Type: " + obj[i].type + "<br>" + obj[i].url;
+        
+    }
+    */
+    
+}).catch (function(error) {
+    console.error("There's an error");
+    console.error(error);
+});
+
+function createMovieList(obj) {
+    //console.log(obj);
+    for (var i = 0; i < 6; i++) {
+        var title=obj.title;
+        console.log(title);
+        /*
+        var movie = document.createElement("li");
+        movieList.appendChild(movie);
+        article.classList.add("retrieved");
+        article.innerHTML = "Name: " + obj[i].name + "<br>" + "Type: " + obj[i].type + "<br>" + obj[i].url;
+        */
+    }
+}
+
+
+//const newItemForm = document.getElementById("list-form");
 
 
 
