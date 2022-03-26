@@ -1,0 +1,33 @@
+.container {
+    display:flex;
+   flex-wrap:wrap;
+    flex-direction:column;
+    width:100%;
+}
+
+.container > * {
+    padding:1em;
+  }
+  
+  
+  .flex-item {
+    display:flex;
+  }
+  
+  #main-page {
+    background-image: linear-gradient(black,white);
+  }
+
+  #header-container {
+    display:flex;
+   flex-wrap:wrap;
+    flex-direction:column;
+   /* width:100%; */
+    justify-content:center;
+    align-content:center;
+    text-align:center;
+}
+
+#menu {
+    display:flex;
+}
