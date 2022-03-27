@@ -37,6 +37,15 @@
     max-width:75%;
 }
 
-#imdb-list {
+#page {
+    max-width:100%;
+}
 
+#watch-list {
+    max-width:500px;
+}
+
+
+#imdb-list {
+    max-width:100%;
 }

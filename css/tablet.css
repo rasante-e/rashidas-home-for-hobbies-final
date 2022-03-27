@@ -14,4 +14,20 @@
         max-width:30%;
     }
 
+    #form-and-countdown {
+        flex-direction: row;
+        display:flex;
+    }
+
+    
+    .flex-container {
+flex-direction: column;
+flex-wrap: nowrap;
+    }
+
+#form {
+    width:50%;
+}
+    
+
 }
