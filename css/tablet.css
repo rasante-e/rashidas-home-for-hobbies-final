@@ -1,0 +1,17 @@
+@media (min-width:768px) {
+
+    /*
+    #page {
+        background-color:purple;
+    }
+    */
+
+    #menu {
+        display:none;
+    }
+
+    #book-img {
+        max-width:30%;
+    }
+
+}
