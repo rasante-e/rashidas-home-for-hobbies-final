@@ -28,6 +28,18 @@ flex-wrap: nowrap;
 #form {
     width:50%;
 }
-    
+
+#day-determiner {
+width:75%;
+}
+
+#both-lists {
+    display:flex;
+    flex-direction:row;
+}
+
+h3 {
+    font-size:20px;
+}
 
 }
