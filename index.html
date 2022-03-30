@@ -27,6 +27,8 @@
 </header>
 <main>
     <div id="form-and-countdown">
+
+<!--Form that will eventually allow user to add new items to the wishlist by storing their responses in local memory. This form is not yet functional-->
 <div id="form" class="container flex-container">
     <p>Enter new items below.</p>
     <form id="list-form">
@@ -40,7 +42,6 @@
     <input type="url" id="url" name="url" required></br>
 
     <input type="submit" id="submit" value="Add to List">
-<!--onclick="saveFormData();"return false;-->
 
 </form>
 </div>
@@ -77,7 +78,7 @@
 </ul>
     </div>
 
-    <!--Div that will hold reddit API-->
+    <!--Div that will hold Random Data API-->
     <div id="imdb-list-container" class="flex-container container">
         <h3>Stay updated on the latest True Crime films and shows</h3>
         <div id="imdb-list">
@@ -92,7 +93,6 @@
 </body>
 <!---->
 <script type="text/javascript" src="list.json"></script>
-<!--<script type="text/javascript" src="bundle.js"></script>-->
 
 <!--Script to house reddit API-->
 <script>
@@ -100,7 +100,6 @@
 
 var redditPosts = document.getElementById("reddit-posts");
 
-//.innerHTML();
 
 </script>
 
@@ -108,19 +107,13 @@ var redditPosts = document.getElementById("reddit-posts");
 <script>
     
 
-//const items = new Request("list.json");
 let list = document.querySelector("#actual-list");
 
-//Fetch API pulls in data from JSON file that contains to watch list
-//Creates constant for div container that will hold to-watch list
-
-
-//const watchList = document.getElementById("watch-list");
 
 const actualList = document.getElementById("actual-list");
 
 
-
+//Fetch to pull in data from the wishlist JSON file
 fetch("list.json").then(function (response) {
     return response.json();
 }).then (function(obj) {
@@ -142,7 +135,7 @@ fetch("list.json").then(function (response) {
 //Variables for movie list
 const movieList = document.getElementById("imdb-list");
 
-
+//Fetch returns data from Random Data API for the movie list
 fetch("https://random-data-api.com/api/app/random_app?size=6").then(function (response) {
     return response.json();
     //return response;
@@ -156,86 +149,36 @@ fetch("https://random-data-api.com/api/app/random_app?size=6").then(function (re
         movie.innerHTML = "Name: " + obj[i].app_name + "<br>" + "Type: " + obj[i].app_author + "<br>" + "URL: " + obj[i].app_semantic_version;
         
     }
-    
-    //createMovieList(obj);
-    //console.log(obj);
-/*
-    for (var i = 0; i < 6; i++) {
-        //console.log(i);
 
-        
-        var movie = document.createElement("li");
-        movieList.appendChild(movie);
-        article.classList.add("retrieved");
-        article.innerHTML = "Name: " + obj[i].name + "<br>" + "Type: " + obj[i].type + "<br>" + obj[i].url;
-        
-    }
-    */
     
 }).catch (function(error) {
     console.error("There's an error");
     console.error(error);
 });
 
-
-/*
-function createMovieList(obj) {
-    //console.log(obj);
-    for (var i = 0; i < 6; i++) {
-        var movie = data.items[0];
-        var title=movie.title;
-        console.log(movie);
-        
-        var movie = document.createElement("li");
-        movieList.appendChild(movie);
-        article.classList.add("retrieved");
-        article.innerHTML = "Name: " + obj[i].name + "<br>" + "Type: " + obj[i].type + "<br>" + obj[i].url;
-        
-    }
-}
-*/
-
-//const newItemForm = document.getElementById("list-form");
-
-
-
-
 </script>
-<!--<script src="index.js"></script>-->
 
-<!--Script that determines whether it is True Crime Time based on the day of the week-->
+<!--Script that determines whether it is True Crime Time based on the day of the week. This script is not yet functional.-->
 <script>
     const dayMessage = document.getElementById("day");
     var date = new Date();
     date = date.getDay();
     date = Number(date);
-    //console.log(typeof date);
-    //console.log(date);
-    //JSON.stringify(date);
-    //console.log(typeof date);
-    //date = parseInt(date, 10);
-    //console.log(date);
 
     const week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    //var daysRemaining = 0;
-    //console.log(week);
-    //console.log(week[date]);
-//if (date == 0 || 5 || 6) {
+
     if (date == 5) {
         dayMessage.innerHTML = "It's " + week[date-1] +" and finally True Crime Time! Pick something from your wishlist to enjoy.";
     } else  {
         dayMessage.innerHTML = "It's only " +week[date-1]+ " and not yet True Crime Time. Better pick something to make the time pass by!";
     }
 
-    //console.log(date.getDay());
 
 </script>
 <!--Script that generates the countdown-->
 <script>
 //Date and time of the book's release
 var bookReleaseDate = new Date("May 31, 2022 12:01:00").getTime();
-//console.log(bookReleaseDate);
-
 
 //Determines the remaining period of time in days, hours, minutes and seconds
 var update = setInterval(function() {
@@ -251,7 +194,6 @@ document.getElementById("actual-countdown").innerHTML = dayTimer + " day(s),"
     + hourTimer + " hour(s)," + minuteTimer + " minute(s)" + " and " + secondTimer + 
     " second(s) until the big release!";
 
-    //console.log(document.getElementById("actual-countdown").innerHTML);
 }
 );
 </script>

@@ -135,3 +135,7 @@ fs.writeFile ("input.json", JSON.stringify(data), function(err) {
     console.log('complete');
     }
 );
+
+    //"build": "browserify index.js -o bundle.js"
+
+    "build": "http-server"
