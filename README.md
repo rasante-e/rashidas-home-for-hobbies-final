@@ -16,3 +16,6 @@ Requirements met:
 2. Retrieve data from an external API and display data in your app: my application uses fetch() to retrieve data generated from Random Data API and displays the items as an unordered list.
 
 3. Calculate and display data based on an external factor: the application uses "new Date().getTime();" to get the current date and time. The countdown is set to the date of an upcoming book release date of "A Haunted Road Atlas" on Amazon. The current date/time is then subtracted from the book release date to display the days, hours, and seconds until the book release (May 31, 2022 at a minute past midnight).
+
+4. Create a form and save the values (on click of Submit button) to an external file 
+You must show us or document where that information is being stored so we can confirm that it’s being saved/persisted: filling out the "Enter new items below." form creates 3 sets of key/value pairs that are saved in local storage. Clicking the "Show Surprise Item" button will then display the saved data at the bottom of the page.
