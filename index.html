@@ -41,8 +41,9 @@
     <label for="url">URL:</label></br>
     <input type="url" id="url" name="url" required></br>
 
-    <input type="submit" id="submit" value="Add to List">
-
+    <input type="submit" id="submit" value="Add to List" onclick="saveFormData()" return false>
+    </br>
+    <input type="submit" id="display" value="Show Surprise Item" onClick="displayWish()" return false>
 </form>
 </div>
 
@@ -85,13 +86,62 @@
     
         </div>
     </div>
+<div id="new-wish-item" class="flex-container container"></div>>
+
+</div>
+
+
 </div>
 </main>
 </div>
 </div>
 
 </body>
-<!---->
+<!--Code for saving form data to LocalStorage-->
+<script>
+
+function saveFormData() {
+    //var inputs = document.getElementById("list-form").elements;
+   var title = document.getElementById("name").value;
+
+   var type = document.getElementById("type").value;
+   var url = document.getElementById("url").value;
+
+
+   window.localStorage.setItem("name",title);
+   window.localStorage.setItem("type",type);
+   window.localStorage.setItem("url",url);
+
+
+   //return false;
+    //console.log(title);
+    //console.log(url);
+}
+
+function displayWish () {
+  var itemName = window.localStorage.getItem("name",title);
+  var itemType = window.localStorage.getItem("type",type);
+  var itemURL = window.localStorage.getItem("url",url);
+
+   console.log(itemName);
+
+  // var itemName = window.localStorage.getItem("name");
+   //var itemType = JSON.parse(window.localStorage.getItem("type"));
+   //var itemURL = JSON.parse(window.localStorage.getItem("url"));
+   
+  var secretItemBox = document.getElementById("new-wish-item");
+
+   
+   var secretItem1 = document.createElement("p");
+   secretItemBox.appendChild(secretItem1);
+   secretItem1.classList.add("retrieved");
+   secretItem1.innerHTML = "Name: " + itemName +  "<br>" + "Type: " + itemType + "<br>" + "URL: " + itemURL;
+   
+}
+
+
+</script>
+
 <script type="text/javascript" src="list.json"></script>
 
 <!--Script to house reddit API-->
@@ -104,6 +154,8 @@ var redditPosts = document.getElementById("reddit-posts");
 </script>
 
 <!--Script that pulls in the JSON file that contains the wishlist and turns each one into a list item-->
+
+
 <script>
     
 

@@ -3,7 +3,7 @@
 Special Instructions:
 
 To run the app:
-Install node
+Type run npm install
 Type npm run in console
 Type http-server in console
 Follow link in console or copy and paste it into browser window
