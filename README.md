@@ -3,9 +3,13 @@
 Special Instructions:
 
 To run the app:
+
 Type npm install in console
+
 Type npm run in console
+
 Type http-server in console
+
 Follow link in console or copy and paste it into browser window
 
 My project is a dashboard for hobbies. For this project, I used true crime. The page has an unordered list that pulls in wishlist items from a local JSON file. Placeholder data is pulled in using an external randomizer API. The page contains a countdown to the publication date of a true crime book. Finally, a user can add a new item to save in local storage, then display it by clicking a button on the page.
